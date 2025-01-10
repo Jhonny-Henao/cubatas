@@ -1,7 +1,10 @@
-export default function Home() {
-  return (
-    <div>
-      Licorera Cubatas
-    </div>
-  );
+import React from "react";
+import LandingPage from "@/app/components/LadingPage";
+
+export default function CubatasPage() {
+    return(
+        <div>
+            <LandingPage />
+        </div>
+    )
 }
