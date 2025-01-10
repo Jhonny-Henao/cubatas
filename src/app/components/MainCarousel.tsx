@@ -23,38 +23,59 @@ const MainCarousel = () => {
   }, []);
 
   return (
-    <div id="inicio" className="relative h-screen pt-16">
+    <div 
+      id="inicio" 
+      className="relative h-[90vh] w-full overflow-hidden bg-gradient-to-b from-gray-900 to-black"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent z-10" />
+      
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="absolute inset-0 flex items-center justify-center bg-black"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.7 }}
+          className="absolute inset-0 flex items-center justify-center"
         >
-          <img
-            src={slides[currentSlide]}
-            alt={`Slide ${currentSlide + 1}`}
-            className="max-w-full max-h-full w-auto h-auto object-contain px-4"
-          />
+          <div className="relative w-full h-full">
+            <img
+              src={slides[currentSlide]}
+              alt={`Slide ${currentSlide + 1}`}
+              className="w-full h-full object-contain px-8"
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
+
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              currentSlide === index ? "bg-white scale-125" : "bg-white/50 hover:bg-white/70"
+            }`}
+          />
+        ))}
+      </div>
+
       <motion.button
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 p-4 rounded-full backdrop-blur-sm z-20 transition-colors duration-300"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={prevSlide}
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft className="text-white" size={24} />
       </motion.button>
+
       <motion.button
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 p-4 rounded-full backdrop-blur-sm z-20 transition-colors duration-300"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={nextSlide}
       >
-        <ChevronRight size={24} />
+        <ChevronRight className="text-white" size={24} />
       </motion.button>
     </div>
   );

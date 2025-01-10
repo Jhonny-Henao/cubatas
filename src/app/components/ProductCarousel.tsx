@@ -19,7 +19,7 @@ const ProductCarousel = () => {
     { 
       src: "/img/Productos/ron.png", 
       title: "Ron Medellín",
-      description: "Ron añejo premium 750ml",
+      description: "Ron caldas premium 750ml",
       price: "28.000"
     },
     { 
