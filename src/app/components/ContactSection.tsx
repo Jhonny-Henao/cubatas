@@ -7,7 +7,10 @@ import { Phone, Clock, MapPin } from "lucide-react";
 const ContactSection = () => {
   const contactInfo = [
     { icon: Phone, title: "Teléfono", info: ["+57 319 539 4766"] },
-    { icon: Clock, title: "Horario", info: ["Lun - Dom", "10:00 AM - 11:00 PM"] },
+    { icon: Clock, title: "Horario", info: [
+      "Lun - Vie: 10:00 AM - 11:00 PM",
+      "Sab - Dom: 10:00 AM - 2:00 AM"
+    ]},
     {
       icon: MapPin,
       title: "Ubicación",
