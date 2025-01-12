@@ -12,6 +12,8 @@ const MainCarousel = () => {
     "/img/Carrusel/oldparr.png",
     "/img/Carrusel/redlabel.png",
     "/img/Carrusel/jack.png",
+    "/img/Carrusel/postobon.jpg",
+    "/img/Carrusel/logo-cubatas.jpg",
   ];
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
